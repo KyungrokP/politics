@@ -200,6 +200,15 @@ In @fig-ppcheckandposteriorvsprior-2 we compare the posterior with the prior. Th
 #| fig-cap: "Examining how the model fits, and is affected by, the data"
 #| fig-subcap: ["Posterior prediction check", "Comparing the posterior with the prior"]
 
+analysis_data <- arrow::read_parquet(here::here("data/analysis_data/analysis_data.parquet"))
+
+set.seed(853)
+
+analysis_data <- 
+  analysis_data |> 
+  slice_sample(n = 1000)
+
+
 pp_check(first_model) +
   theme_classic() +
   theme(legend.position = "bottom")

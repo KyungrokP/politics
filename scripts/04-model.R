@@ -18,7 +18,7 @@ analysis_data <- read_parquet("data/analysis_data/analysis_data.parquet")
 set.seed(853)
 
 ces2020_reduced <- 
-  ces2020 |> 
+  analysis_data |> 
   slice_sample(n = 1000)
 
 ### Model data ####
